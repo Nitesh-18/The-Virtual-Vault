@@ -4,9 +4,9 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const path = require('path');
 
-const ownersRouter = require('./routes/ownersRouter');
-const productsRouter = require('./routes/productsRouter');
-const usersRouter = require('./routes/usersRouter');
+import ownersRouter from './routes/ownersRouter';
+import productsRouter from './routes/productsRouter';
+import usersRouter from './routes/usersRouter';
 
 const db = require('./config/mongoose-connection'); // added a closing parenthesis
 
