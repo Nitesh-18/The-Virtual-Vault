@@ -1,12 +1,16 @@
 const mongoose = require('mongoose');
+const config = require('config');
+
+const dbgr = require('debug')("development: mongoose");
+
 
 mongoose
-.connect(`mongodb://127.0.0.1:27017/The_Virtual_Vault`)
+.connect(`${config.get("MONGODB_URI")}/The_Virtual_Vault`)
 .then(function(){
-    console.log('Database Connected');
+    dbgr('Database Connected');
 })
 .catch(function(err){
-    console.log(err);
+    dbgr(err);
 });
 
 module.exports = mongoose.connection;
