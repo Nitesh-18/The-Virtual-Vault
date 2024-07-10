@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const userModel = require(`../models/user-model`);
 
 const { generateToken } = require("../utils/generateTokens");
+const user = require("../models/user-model");
 
 module.exports.registerUser = async (req, res) => {
   try {
@@ -49,5 +50,30 @@ module.exports.registerUser = async (req, res) => {
     });
   } catch (err) {
     res.status(500).send({ message: err.message });
+  }
+};
+
+module.exports.loginUser = async (req, res) => {
+  try {
+    let { email, password } = req.body;
+    if (!email || !password) {
+      return res
+        .status(400)
+        .send({ message: "Email and password are required" });
+    }
+    let existingUser = await userModel.findOne({ email: email });
+    if (!existingUser) {
+      return res.status(400).send({ message: "User not found" });
+    }
+    const isMatch = await bcrypt.compare(password, existingUser.password);
+    if (!isMatch) {
+      return res.status(400).send({ message: "Invalid password" });
+    }
+    let token = generateToken(existingUser);
+    res.cookie("token", token);
+    res.status(200).send({ message: "User logged in successfully" });
+    
+  } catch (err) {
+    console.log(err.message);
   }
 };
