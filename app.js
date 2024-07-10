@@ -8,7 +8,10 @@ const ownersRouter = require('./routes/ownersRouter');
 const usersRouter = require('./routes/usersRouter');
 const productsRouter = require('./routes/productsRouter');
 const indexRouter= require('./routes/index');
-const db = require('./config/mongoose-connection'); // added a closing parenthesis
+const db = require('./config/mongoose-connection'); // added the mongoose connection
+
+require('dotenv').config();
+
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));

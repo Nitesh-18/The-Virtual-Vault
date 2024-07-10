@@ -35,7 +35,8 @@ router.post("/register", async (req, res) => {
             });
 
             let token = jwt.sign({ email, id: createdUser._id }, "prachi");
-            res.status(200).send({ token });
+            res.cookie('token',token);
+            res.status(200).send("User Created Successfully !");
           } catch (createErr) {
             res.status(500).send(createErr.message);
           }
