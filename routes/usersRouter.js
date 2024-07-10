@@ -5,6 +5,8 @@ const jwt = require("jsonwebtoken");
 
 const userModel = require(`../models/user-model`);
 
+const {generateToken}  = require('../utils/generateTokens');
+
 router.get("/", (req, res) => {
   res.send("Hiu");
 });
@@ -34,7 +36,7 @@ router.post("/register", async (req, res) => {
               password: hash,
             });
 
-            let token = jwt.sign({ email, id: createdUser._id }, "prachi");
+            let token = generateToken(createdUser);
             res.cookie('token',token);
             res.status(200).send("User Created Successfully !");
           } catch (createErr) {
