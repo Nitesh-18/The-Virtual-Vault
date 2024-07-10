@@ -2,9 +2,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const userModel = require(`../models/user-model`);
-
+const flash = require("connect-flash");
 const { generateToken } = require("../utils/generateTokens");
-const user = require("../models/user-model");
 
 module.exports.registerUser = async (req, res) => {
   try {
@@ -56,24 +55,35 @@ module.exports.registerUser = async (req, res) => {
 module.exports.loginUser = async (req, res) => {
   try {
     let { email, password } = req.body;
+
     if (!email || !password) {
-      return res
-        .status(400)
-        .send({ message: "Email and password are required" });
+      req.flash("error", "Email and password are required");
+      return res.redirect("/");
     }
+
     let existingUser = await userModel.findOne({ email: email });
     if (!existingUser) {
-      return res.status(400).send({ message: "User not found" });
+      req.flash("error", "User not found");
+      return res.redirect("/");
     }
+
     const isMatch = await bcrypt.compare(password, existingUser.password);
     if (!isMatch) {
-      return res.status(400).send({ message: "Invalid password" });
+      req.flash("error", "Invalid password");
+      return res.redirect("/");
     }
+
     let token = generateToken(existingUser);
     res.cookie("token", token);
-    res.status(200).send({ message: "User logged in successfully" });
-    
+    req.flash("success", "User logged in successfully");
+    res.redirect("/shop");
   } catch (err) {
-    console.log(err.message);
+    req.flash("error", err.message);
+    res.redirect("/");
   }
+};
+
+module.exports.logoutUser = (req, res) => {
+  res.cookie("token", "");
+  res.redirect("/");
 };
