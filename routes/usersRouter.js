@@ -6,48 +6,12 @@ const jwt = require("jsonwebtoken");
 const userModel = require(`../models/user-model`);
 
 const {generateToken}  = require('../utils/generateTokens');
+const {registerUser} = require('../controllers/authController');
 
 router.get("/", (req, res) => {
   res.send("Hiu");
 });
 
-router.post("/register", async (req, res) => {
-  try {
-    let { email, password, name } = req.body;
-
-    let user = await userModel.findOne({ email });
-    if (user) {
-      return res.status(503).send("Already registered with this email !");
-    }
-
-    bcrypt.genSalt(10, function (err, salt) {
-      if (err) {
-        return res.status(400).send(err.message);
-      }
-
-      bcrypt.hash(password, salt, async function (err, hash) {
-        if (err) {
-          return res.status(400).send(err.message);
-        } else {
-          try {
-            let createdUser = await userModel.create({
-              name,
-              email,
-              password: hash,
-            });
-
-            let token = generateToken(createdUser);
-            res.cookie('token',token);
-            res.status(200).send("User Created Successfully !");
-          } catch (createErr) {
-            res.status(500).send(createErr.message);
-          }
-        }
-      });
-    });
-  } catch (err) {
-    res.status(500).send(err.message);
-  }
-});
+router.post("/register",registerUser);
 
 module.exports = router;
