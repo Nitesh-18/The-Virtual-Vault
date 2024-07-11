@@ -85,5 +85,6 @@ module.exports.loginUser = async (req, res) => {
 
 module.exports.logoutUser = (req, res) => {
   res.cookie("token", "");
+  req.flash("success", "You have been logged out successfully");
   res.redirect("/");
 };

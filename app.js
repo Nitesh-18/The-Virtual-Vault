@@ -21,13 +21,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
-  expressSession({ // use expressSession
+  expressSession({
+    // use expressSession
     resave: false,
     saveUninitialized: false,
     secret: process.env.EXPRESS_SESSION_SECRET,
   })
 );
 app.use(flash());
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  next();
+});
+
 app.set("view engine", "ejs");
 
 app.use("/owners", ownersRouter);
