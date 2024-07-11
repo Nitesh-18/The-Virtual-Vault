@@ -41,7 +41,8 @@ module.exports.registerUser = async (req, res) => {
 
           const token = generateToken(createdUser);
           res.cookie("token", token);
-          res.status(201).send({ message: "User created successfully" });
+          req.flash("success","Account Created Successfully! Now you can login");
+          res.redirect("/");
         } catch (createErr) {
           res.status(500).send({ message: createErr.message });
         }
@@ -72,11 +73,11 @@ module.exports.loginUser = async (req, res) => {
       req.flash("error", "Invalid password");
       return res.redirect("/");
     }
-
+    req.session.user = existingUser;
     let token = generateToken(existingUser);
     res.cookie("token", token);
     req.flash("success", "User logged in successfully");
-    res.render("shop");
+    res.redirect("/shop");
   } catch (err) {
     req.flash("error", err.message);
     res.redirect("/");
