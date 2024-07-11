@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const ownerModel = require("../models/owner-model");
+const flash = require('connect-flash');
 // console.log(process.env.NODE_ENV);
 
 if (process.env.NODE_ENV === "development") {
@@ -21,11 +22,8 @@ if (process.env.NODE_ENV === "development") {
 }
 
 router.get("/admin", (req, res) => {
-  let success = req.flash(
-    "success",
-    "You have successfully created the product ! "
-  );
-  res.render("createproducts",{success});
+  let success = req.flash("success");
+  res.render("createproducts", { success });
 });
 
 module.exports = router;

@@ -4,8 +4,8 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const path = require("path");
 
-const ownersRouter = require("./routes/ownersRouter");
 const usersRouter = require("./routes/usersRouter");
+const ownersRouter = require("./routes/ownersRouter");
 const productsRouter = require("./routes/productsRouter");
 const indexRouter = require("./routes/index.js");
 const db = require("./config/mongoose-connection"); // added the mongoose connection
@@ -29,10 +29,10 @@ app.use(
   })
 );
 app.use(flash());
-app.use((req, res, next) => {
-  res.locals.success = req.flash("success");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.locals.success = req.flash("success");
+//   next();
+// });
 
 app.set("view engine", "ejs");
 
