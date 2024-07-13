@@ -41,7 +41,10 @@ module.exports.registerUser = async (req, res) => {
 
           const token = generateToken(createdUser);
           res.cookie("token", token);
-          req.flash("success","Account Created Successfully! Now you can login");
+          req.flash(
+            "success",
+            "Account Created Successfully! Now you can login"
+          );
           res.redirect("/");
         } catch (createErr) {
           res.status(500).send({ message: createErr.message });
