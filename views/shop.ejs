@@ -25,12 +25,12 @@
             <div class="flex items-start gap-5">
                 <% products.forEach(function(product){ %>
                     <div class="w-60">
-                        <div class="w-full h-52 flex items-center justify-center bg-[<%= product.bgcolor %>]">
+                        <div class="w-full h-52 flex items-center justify-center bg-[<%= product.bgColor %>]">
                             <img class="h-[12rem]" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
                                 alt="">
                         </div>
                         <div
-                            class="flex justify-between bg-[<%= product.panelcolor %>] items-center px-4 py-4 text-[<%= product.textcolor %>]">
+                            class="flex justify-between bg-[<%= product.panelColor %>] items-center px-4 py-4 text-[<%= product.textColor %>]">
                             <div>
                                 <h3>
                                     <%= product.name %>
