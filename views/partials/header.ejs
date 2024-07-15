@@ -7,9 +7,54 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .brand-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            /* Subtle shadow for better readability */
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('/path/to/your/navbar-background.jpg');
+            /* Add your image path here */
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .page-content {
+            padding-top: 100px;
+            /* Ensure content is below the navbar */
+        }
+
+        body {
+            background-image: url('/path/to/your/body-background.jpg');
+            /* Add your image path here */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            /* Ensures the background image stays in place */
+        }
+    </style>
 </head>
 
 <body class="font-['helvetica_now_display']">
-    <nav class="w-full fixed top-0 left-0 px-5 py-3">
-        <h3 class="text-xl">The-Virtual-Vault</h3>
+    <nav class="w-full fixed top-0 left-0 nav-container">
+        <h3 class="brand-name">The Virtual Vault</h3>
     </nav>
+    <div class="page-content">
+        <!-- Rest of your page content goes here -->
+    </div>
+</body>
+
+</html>
