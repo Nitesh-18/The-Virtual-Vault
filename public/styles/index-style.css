@@ -1,10 +1,14 @@
+* {
+    scrollbar-width: none;
+}
+
 body {
     background: url('/images/close-up-clock-with-time-change.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
 .container {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     /* Adjust transparency as needed */
     padding: 20px;
     border-radius: 10px;
@@ -25,8 +29,7 @@ h4,
 
 input[type="text"],
 input[type="email"],
-input[type="password"],
-input[type="submit"] {
+input[type="password"] {
     background-color: rgba(255, 255, 255, 0.8);
     /* Semi-transparent input fields */
     color: #000;
