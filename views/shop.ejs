@@ -24,7 +24,7 @@
         </div>
         <div class="w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ml-6">
             <% products.forEach(function(product){ %>
-                <div class="flex flex-col bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="flex flex-col bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-200 hover:scale-105">
                     <div class="flex-1 flex items-center justify-center bg-[<%= product.bgColor %>] h-52 p-4">
                         <img class="h-[12rem] object-contain" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" alt="<%= product.name %>">
                     </div>
@@ -33,7 +33,7 @@
                             <h3 class="text-lg font-semibold"><%= product.name %></h3>
                             <h4 class="text-md">₹ <%= product.price %></h4>
                         </div>
-                        <a class="w-7 h-7 flex items-center justify-center rounded-full bg-white text-black hover:bg-gray-200" href="">
+                        <a class="w-7 h-7 flex items-center justify-center rounded-full bg-white text-black hover:bg-gray-200 transition-colors duration-200" href="">
                             <i class="ri-add-line"></i>
                         </a>
                     </div>
