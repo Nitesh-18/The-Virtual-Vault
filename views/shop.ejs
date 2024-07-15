@@ -2,7 +2,7 @@
 
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f5f5f5;
             margin: 0;
             padding: 0;
@@ -14,33 +14,35 @@
             margin: 20px auto;
             padding: 20px;
             background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
 
         .sidebar {
-            width: 25%;
+            width: 20%;
             padding: 20px;
             border-right: 1px solid #e0e0e0;
         }
 
         .sidebar h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #333;
         }
 
         .sidebar select,
         .sidebar a {
             display: block;
             width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
             font-size: 1rem;
             color: #333;
             text-decoration: none;
             border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            background-color: #fafafa;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .sidebar select {
@@ -48,11 +50,12 @@
         }
 
         .sidebar a:hover {
-            background-color: #e0e0e0;
+            background-color: #007bff;
+            color: #fff;
         }
 
         .products-container {
-            width: 75%;
+            width: 80%;
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
@@ -65,18 +68,18 @@
             border: 1px solid #e0e0e0;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .product-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .product-image {
             width: 100%;
             padding-top: 75%;
-            /* 4:3 Aspect Ratio */
             position: relative;
         }
 
@@ -91,23 +94,25 @@
         }
 
         .product-info {
-            padding: 15px;
+            padding: 20px;
+            text-align: center;
         }
 
         .product-info h3 {
-            font-size: 1.1rem;
-            margin: 0 0 5px;
+            font-size: 1.2rem;
+            margin: 0 0 10px;
+            color: #333;
         }
 
         .product-info h4 {
             font-size: 1rem;
             color: #777;
-            margin: 0 0 10px;
+            margin: 0 0 15px;
         }
 
         .add-to-cart {
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             padding: 10px;
             background-color: #fafafa;
             border-top: 1px solid #e0e0e0;
@@ -115,8 +120,8 @@
 
         .add-to-cart a {
             display: inline-block;
-            padding: 8px;
-            font-size: 1.2rem;
+            padding: 10px;
+            font-size: 1.4rem;
             background-color: #007bff;
             color: #fff;
             border-radius: 50%;
