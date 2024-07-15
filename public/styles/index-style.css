@@ -4,9 +4,31 @@ body {
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.3);
-    /* Semi-transparent white background */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adjust transparency as needed */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Adjust transparency as needed */
+}
+
+h3,
+h4,
+.form-container {
+    color: #fff;
+    /* Ensure text is visible on dark background */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent input fields */
+    color: #000;
+    /* Black text for better readability */
 }
