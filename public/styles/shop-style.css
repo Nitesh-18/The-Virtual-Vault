@@ -105,15 +105,17 @@ body {
 }
 
 .product-info h3 {
-    font-size: 1.2rem;
-    margin: 0 0 10px;
-    color: #333;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
 }
 
 .product-info h4 {
-    font-size: 1rem;
-    color: #777;
-    margin: 0 0 15px;
+    font-family: 'Roboto', sans-serif;
+    /* or 'Lora', serif */
+    font-size: 1.2rem;
+    font-weight: 400;
 }
 
 .add-to-cart {
