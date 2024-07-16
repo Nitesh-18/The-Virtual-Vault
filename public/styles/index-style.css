@@ -36,3 +36,7 @@ input[type="password"] {
     color: #000;
     /* Black text for better readability */
 }
+
+input[type="submit"]{
+    color: #000;
+}
