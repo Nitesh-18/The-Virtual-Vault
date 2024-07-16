@@ -1,6 +1,11 @@
+*{
+    scrollbar-width: none;
+}
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
+    /* Dark background */
+    color: #f5f5f5;
+    /* Light text color */
     margin: 0;
     padding: 0;
     background-size: cover;
@@ -9,31 +14,28 @@ body {
 }
 
 .container {
+    background-color: #1c1c1c;
     display: flex;
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    /* semi-transparent white */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: rgba(28, 28, 28, 0.9);
+    /* Dark semi-transparent */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
 
 .sidebar {
     width: 20%;
     padding: 20px;
-    border-right: 1px solid #e0e0e0;
-    background-image: url('https://unsplash.com/photos/vHVfpi3hBXk');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    border-right: 1px solid #444;
+    background-color: #2b2b2b;
 }
-
 
 .sidebar h3 {
     font-size: 1.4rem;
     margin-bottom: 15px;
-    color: #333;
+    color: #f5f5f5;
 }
 
 .sidebar select,
@@ -43,11 +45,11 @@ body {
     padding: 10px 15px;
     margin-bottom: 15px;
     font-size: 1rem;
-    color: #333;
+    color: #f5f5f5;
     text-decoration: none;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #444;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: #333;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -70,17 +72,16 @@ body {
 
 .product-card {
     width: calc(33.333% - 20px);
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #444;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .product-image {
@@ -122,8 +123,8 @@ body {
     display: flex;
     justify-content: center;
     padding: 10px;
-    background-color: #fafafa;
-    border-top: 1px solid #e0e0e0;
+    background-color: #1c1c1c;
+    border-top: 1px solid #444;
 }
 
 .add-to-cart a {
