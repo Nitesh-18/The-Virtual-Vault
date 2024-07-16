@@ -24,11 +24,11 @@
         <div class="products-container">
             <% products.forEach(function(product){ %>
                 <div class="product-card">
-                    <div class="product-image bg-[<%= product.bgcolor %>]">
+                    <div class="product-image bg-[<%= product.bgColor %>]">
                         <img src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
                             alt="<%= product.name %>">
                     </div>
-                    <div class="product-info  bg-[<%= product.panelColor %>] text-[<%= product.textcolor %>]">
+                    <div class="product-info  bg-[<%= product.panelColor %>] text-[<%= product.textColor %>]">
                         <h3>
                             <%= product.name %>
                         </h3>
