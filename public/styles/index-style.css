@@ -9,7 +9,6 @@ body {
 
 .container {
     background-color: rgba(0, 0, 0, 0.5);
-    /* Adjust transparency as needed */
     border-radius: 10px;
     padding: 20px;
     display: flex;
@@ -18,14 +17,12 @@ body {
 
 nav {
     background-color: rgba(0, 0, 0, 0.7);
-    /* Adjust transparency as needed */
 }
 
 h3,
 h4,
 .form-container {
     color: #fff;
-    /* Ensure text is visible on dark background */
 }
 
 input[type="text"],
@@ -33,14 +30,23 @@ input[type="email"],
 input[type="password"] {
     font-weight: 700;
     background-color: rgba(255, 255, 255, 0.8);
-    /* Semi-transparent input fields */
     color: #000;
-    /* Black text for better readability */
 }
 
-input[type="submit"]{
+input[type="submit"] {
     color: #000;
-    font-stretch:semi-expanded;
-    font-optical-sizing:auto ;
+    font-stretch: semi-expanded;
+    font-optical-sizing: auto;
     font-weight: 700;
+    background-color: #007bff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
