@@ -1,7 +1,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1c1c1c;
-    color: #f5f5f5;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
     margin: 0;
     padding: 0;
     background-size: cover;
@@ -14,8 +14,7 @@ body {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #2b2b2b;
-    /* dark semi-transparent */
+    background-color: #333;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
@@ -23,14 +22,14 @@ body {
 .sidebar {
     width: 20%;
     padding: 20px;
-    border-right: 1px solid #333;
-    background-color: #333;
+    border-right: 1px solid #444;
+    background-color: #1a1a1a;
 }
 
 .sidebar h3 {
     font-size: 1.4rem;
     margin-bottom: 15px;
-    color: #fff;
+    color: #e0e0e0;
 }
 
 .sidebar select,
@@ -40,11 +39,11 @@ body {
     padding: 10px 15px;
     margin-bottom: 15px;
     font-size: 1rem;
-    color: #fff;
+    color: #e0e0e0;
     text-decoration: none;
     border: 1px solid #444;
     border-radius: 5px;
-    background-color: #444;
+    background-color: #333;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -71,13 +70,13 @@ body {
     border: 1px solid #555;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .product-image {
@@ -105,7 +104,7 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     font-weight: 700;
-    color: #fff;
+    color: #e0e0e0;
     margin-bottom: 0.5rem;
 }
 
@@ -113,15 +112,15 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
     font-weight: 400;
-    color: #ccc;
+    color: #b0b0b0;
 }
 
 .add-to-cart {
     display: flex;
     justify-content: center;
     padding: 10px;
-    background-color: #555;
-    border-top: 1px solid #666;
+    background-color: #333;
+    border-top: 1px solid #444;
 }
 
 .add-to-cart a {
