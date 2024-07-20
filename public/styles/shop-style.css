@@ -113,11 +113,12 @@ body {
     font-weight: 400;
 }
 
+/* Add these styles for the 'Add to Cart' button */
+
 .add-to-cart {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Ensure the text and icon are centered */
     padding: 10px;
     background-color: #333;
     border-top: 1px solid #444;
@@ -127,24 +128,36 @@ body {
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    /* Add padding to give space around the text */
     font-size: 1rem;
-    background-color: #007bff;
+    font-weight: bold;
+    /* Enhance text styling */
     color: #fff;
     border-radius: 50px;
-    /* Rounded button */
     text-align: center;
     text-decoration: none;
     transition: background-color 0.3s ease;
+    background-color: #007bff;
 }
 
 .add-to-cart a:hover {
     background-color: #0056b3;
 }
 
-/* Additional styles to adjust the icon and text spacing */
+/* Additional styles to make the icon stand out */
 
 .add-to-cart i {
+    font-size: 1.4rem;
+    /* Increase icon size */
     margin-right: 8px;
     /* Add space between the icon and the text */
+    color: #ffd700;
+    /* Different color for the icon to stand out */
+}
+
+/* Enhanced text styling */
+.add-to-cart span {
+    font-size: 1.2rem;
+    /* Increase text size */
+    letter-spacing: 0.5px;
+    /* Add letter spacing for better readability */
 }
