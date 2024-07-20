@@ -1,45 +1,69 @@
 <%- include('./partials/header') %>
 
-<link rel="stylesheet" href="/styles/create-product-style.css">
+    <link rel="stylesheet" href="/styles/create-product-style.css">
 
-<% if(success.length>0){ %>
-    <div class="success-message">
-        <span><%= success %></span>
-    </div>
-<% } %>
+    <% if(success.length> 0) { %>
+        <div class="success-message">
+            <span>
+                <%= success %>
+            </span>
+        </div>
+        <% } %>
 
-<div class="container">
-    <div class="sidebar">
-        <h3>Categories</h3>
-        <a href="">All Products</a>
-        <a href="">Create New Product</a>
-    </div>
-    <main class="main-content">
-        <h2 class="title">Create New Product</h2>
-        <form autocomplete="off" action="/products/create" method="post" enctype="multipart/form-data">
-            <div class="form-section">
-                <h3 class="subtitle">Product Details</h3>
-                <div class="form-group">
-                    <label>Product Image</label>
-                    <input name="image" type="file" class="input-file" value="Select File">
+            <div class="container">
+                <div class="sidebar">
+                    <h3>Categories</h3>
+                    <a href="">All Products</a>
+                    <a href="">Create New Product</a>
                 </div>
-                <div class="form-grid">
-                    <input name="name" type="text" placeholder="Product Name" class="input-text">
-                    <input name="price" type="text" placeholder="Product Price" class="input-text">
-                    <input name="discount" type="text" placeholder="Discount Price" class="input-text">
-                </div>
+                <main class="main-content">
+                    <h2 class="title">Create New Product</h2>
+                    <form id="create-product-form" autocomplete="off" action="/products/create" method="post"
+                        enctype="multipart/form-data">
+                        <div class="form-section">
+                            <h3 class="subtitle">Product Details</h3>
+                            <div class="form-group">
+                                <label for="product-image">Product Image</label>
+                                <input id="product-image" name="image" type="file" class="input-file"
+                                    value="Select File">
+                            </div>
+                            <div class="form-grid">
+                                <input name="name" type="text" placeholder="Product Name" class="input-text" required>
+                                <input name="price" type="text" placeholder="Product Price" class="input-text" required>
+                                <input name="discount" type="text" placeholder="Discount Price" class="input-text">
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <h3 class="subtitle">Panel Details</h3>
+                            <div class="form-grid">
+                                <input name="bgColor" type="text" placeholder="Background Color"
+                                    class="input-text color-picker">
+                                <input name="panelColor" type="text" placeholder="Panel Color"
+                                    class="input-text color-picker">
+                                <input name="textColor" type="text" placeholder="Text Color"
+                                    class="input-text color-picker">
+                            </div>
+                        </div>
+                        <input class="submit-button" type="submit" value="Create New Product">
+                    </form>
+                </main>
             </div>
-            <div class="form-section">
-                <h3 class="subtitle">Panel Details</h3>
-                <div class="form-grid">
-                    <input name="bgColor" type="text" placeholder="Background Color" class="input-text">
-                    <input name="panelColor" type="text" placeholder="Panel Color" class="input-text">
-                    <input name="textColor" type="text" placeholder="Text Color" class="input-text">
-                </div>
-            </div>
-            <input class="submit-button" type="submit" value="Create New Product">
-        </form>
-    </main>
-</div>
 
-<%- include('./partials/footer') %>
+            <script>
+                document.getElementById('create-product-form').addEventListener('submit', function (e) {
+                    if (!confirm('Are you sure you want to create this product?')) {
+                        e.preventDefault();
+                    }
+                });
+
+                document.querySelectorAll('.color-picker').forEach(input => {
+                    input.addEventListener('focus', function () {
+                        this.type = 'color';
+                    });
+                    input.addEventListener('blur', function () {
+                        this.type = 'text';
+                    });
+                });
+            </script>
+
+            <%- include('./partials/footer') %>
