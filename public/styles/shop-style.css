@@ -116,18 +116,23 @@ body {
 .add-to-cart {
     display: flex;
     justify-content: center;
+    align-items: center;
+    /* Ensure the text and icon are centered */
     padding: 10px;
     background-color: #333;
     border-top: 1px solid #444;
 }
 
 .add-to-cart a {
-    display: inline-block;
-    padding: 10px;
-    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    /* Add padding to give space around the text */
+    font-size: 1rem;
     background-color: #007bff;
     color: #fff;
-    border-radius: 50%;
+    border-radius: 50px;
+    /* Rounded button */
     text-align: center;
     text-decoration: none;
     transition: background-color 0.3s ease;
@@ -135,4 +140,11 @@ body {
 
 .add-to-cart a:hover {
     background-color: #0056b3;
+}
+
+/* Additional styles to adjust the icon and text spacing */
+
+.add-to-cart i {
+    margin-right: 8px;
+    /* Add space between the icon and the text */
 }
