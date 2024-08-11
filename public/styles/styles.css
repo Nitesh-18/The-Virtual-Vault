@@ -1,0 +1,26 @@
+/* styles.css */
+
+.bg-custom1 {
+  background-color: #f5f5f5; /* Replace with actual colors */
+}
+
+.bg-custom2 {
+  background-color: #ffcccb;
+}
+
+/* Additional classes for panel colors and text colors */
+.panel-custom1 {
+  background-color: #333;
+}
+
+.panel-custom2 {
+  background-color: #555;
+}
+
+.text-custom1 {
+  color: #111;
+}
+
+.text-custom2 {
+  color: #444;
+}
