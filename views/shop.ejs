@@ -3,44 +3,51 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&family=Lora:wght@400;700&display=swap"
         rel="stylesheet">
-
-    <div class="container">
-        <div class="sidebar">
-            <h3>Sort by</h3>
-            <form action="/shop">
-                <select name="sortby" id="">
-                    <option value="popular">Popular</option>
-                    <option value="newest">Newest</option>
-                </select>
-            </form>
-            <h3>Categories</h3>
-            <a href="">New Collection</a>
-            <a href="">All Products</a>
-            <a href="">Discounted Products</a>
-            <h3>Filter by</h3>
-            <a href="">Availability</a>
-            <a href="">Discount</a>
-        </div>
-        <div class="products-container">
-            <% products.forEach(function(product){ %>
-                <div class="product-card">
-                    <div class="product-image bg-[<%= product.bgColor %>]">
-                        <img src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
-                            alt="<%= product.name %>">
-                    </div>
-                    <div class="product-info  bg-[<%= product.panelColor %>] text-[<%= product.textColor %>]">
-                        <h3>
-                            <%= product.name %>
-                        </h3>
-                        <h4>₹ <%= product.price %>
-                        </h4>
-                    </div>
-                    <div class="add-to-cart">
-                        <a href="#"><i class="ri-add-line"></i> <span>Add to Cart</span></a>
-                    </div>
+        <% if (typeof success !== 'undefined' && success.length > 0) { %>
+            <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500">
+                <span class="inline-block mt-1 mb-1 text-white">
+                    <%= success %>
+                </span>
+            </div>
+        <% } %>
+            <div class="container">
+                <div class="sidebar">
+                    <h3>Sort by</h3>
+                    <form action="/shop">
+                        <select name="sortby" id="">
+                            <option value="popular">Popular</option>
+                            <option value="newest">Newest</option>
+                        </select>
+                    </form>
+                    <h3>Categories</h3>
+                    <a href="">New Collection</a>
+                    <a href="">All Products</a>
+                    <a href="">Discounted Products</a>
+                    <h3>Filter by</h3>
+                    <a href="">Availability</a>
+                    <a href="">Discount</a>
                 </div>
-                <% }) %>
-        </div>
-    </div>
+                <div class="products-container">
+                    <% products.forEach(function(product){ %>
+                        <div class="product-card">
+                            <div class="product-image bg-[<%= product.bgColor %>]">
+                                <img src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
+                                    alt="<%= product.name %>">
+                            </div>
+                            <div class="product-info  bg-[<%= product.panelColor %>] text-[<%= product.textColor %>]">
+                                <h3>
+                                    <%= product.name %>
+                                </h3>
+                                <h4>₹ <%= product.price %>
+                                </h4>
+                            </div>
+                            <div class="add-to-cart">
+                                <a href="/addtocart/<%= product._id%>"><i class="ri-add-line"></i> <span>Add to
+                                        Cart</span></a>
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
 
-    <%- include('./partials/footer') %>
+            <%- include('./partials/footer') %>
