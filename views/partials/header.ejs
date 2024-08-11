@@ -27,7 +27,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: rgba(0, 0, 0, 0.8); /* Transparent black */
+            background: rgba(0, 0, 0, 0.8);
+            /* Transparent black */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             padding: 20px 0;
             position: fixed;
@@ -43,13 +44,21 @@
     </style>
 </head>
 
-<body class="font-['helvetica_now_display']">
-    <nav class="w-full nav-container">
-        <h3 class="brand-name">The Virtual Vault</h3>
+<body class="font-['helvetica_now_display'] bg-black text-white">
+    <nav class="w-full flex items-center justify-between px-4 py-2 bg-black-900 shadow-lg">
+        <h3 class="brand-name text-xl font-bold text-center w-1/3">The Virtual Vault</h3>
+        <div class="flex justify-end w-1/3">
+            <div class="flex gap-6">
+                <a href="/shop" class="hover:text-gray-400">Shop</a>
+                <a href="/cart" class="hover:text-gray-400">Cart</a>
+                <a href="/" class="hover:text-gray-400">My Account</a>
+                <a href="/logout" class="hover:text-gray-400">Logout</a>
+            </div>
+        </div>
     </nav>
-    <div class="page-content">
-        <!-- Rest of your page content goes here -->
-    </div>
+    <!-- Rest of your content -->
 </body>
+
+
 
 </html>
