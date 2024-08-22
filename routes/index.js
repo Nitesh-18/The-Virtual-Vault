@@ -12,11 +12,36 @@ router.get("/", (req, res) => {
 });
 
 router.get("/addtocart/:productid", isLoggedIn, async (req, res) => {
-  let user = await userModel.findOne({ email: req.user.email });
-  user.cart.push(req.params.productid);
-  await user.save();
-  req.flash("success", "Product Added to Cart");
-  res.redirect("/shop");
+  try {
+    let user = await userModel.findOne({ email: req.user.email });
+    if (!user) {
+      req.flash("error", "User not found");
+      return res.redirect("/shop");
+    }
+
+    if (!user.cart) {
+      user.cart = [];
+    }
+
+    let product = await productModel.findById(req.params.productid);
+    if (!product) {
+      req.flash("error", "Product not found");
+      return res.redirect("/shop");
+    }
+
+    if (!product.image) {
+      product.image = "default_image_data"; // Replace with a default image if none exists
+    }
+
+    user.cart.push(product._id);
+    await user.save();
+
+    req.flash("success", "Product Added to Cart");
+    res.redirect("/shop");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server error");
+  }
 });
 
 router.get("/shop", isLoggedIn, (req, res) => {
@@ -34,15 +59,13 @@ router.get("/shop", isLoggedIn, (req, res) => {
 
 router.get("/cart", isLoggedIn, async (req, res) => {
   try {
-    let user = await userModel
-      .findOne({ email: req.user.email })
-      .populate("cart");
-
-    console.log(user); // Log the user object to ensure it is correctly populated
+    const user = await userModel.findOne({ email: req.user.email }).populate('cart');
 
     if (!user || !user.cart) {
       return res.status(404).send("Cart not found");
     }
+
+    console.log(user.cart);
 
     // Calculating the total bill of all items
     let totalAmount = 0;

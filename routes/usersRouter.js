@@ -12,7 +12,7 @@ const {
   logoutUser,
 } = require("../controllers/authController");
 
-router.get("/", (req, res) => {
+router.get("/", (_req, res) => {
   res.send("Hiu");
 });
 

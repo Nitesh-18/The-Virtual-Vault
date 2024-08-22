@@ -9,7 +9,8 @@
                             class="w-full flex justify-center items-center h-60 <%= item.bgcolor ? 'bg-custom' + index : '' %>">
                             <!-- Ensuring the image is of the same size -->
                             <img class="h-full max-h-full object-contain max-w-full"
-                                src="data:image/jpeg;base64,<%= item.image.toString('base64') %>" alt="">
+                                src="<%= item.image ? 'data:image/jpeg;base64,' + item.image.toString('base64') : '/path/to/default/image.jpg' %>"
+                                alt="<%= item.name %>">
                         </div>
                         <div
                             class="w-full flex justify-between px-5 py-4 <%= item.panelcolor ? 'panel-custom' + index : '' %>">
@@ -26,7 +27,7 @@
                         </div>
                         <div class="flex items-center justify-between px-5 py-3 text-black">
                             <h4 class="text-lg">Net Total</h4>
-                            <h2 class="text-lg"> ₹ <%= item.price - item.discount %>
+                            <h2 class="text-lg"> ₹ <%= (item.price || 0) - (item.discount || 0) %>
                             </h2>
                         </div>
 
@@ -36,18 +37,18 @@
                             <div class="mt-3">
                                 <div class="flex justify-between mt-2">
                                     <h4>Total MRP</h4>
-                                    <h4>₹ <%= item.price %>
+                                    <h4>₹ <%= item.price || 0 %>
                                     </h4>
                                 </div>
                                 <div class="flex justify-between mt-2">
                                     <h4>Discount on MRP</h4>
-                                    <h4>₹ <%= item.discount %>
+                                    <h4>₹ <%= item.discount || 0 %>
                                     </h4>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <% totalAmount +=(item.price - item.discount); %>
+                    <% totalAmount +=((item.price || 0) - (item.discount || 0)); %>
                         <% }) %>
         </div>
 
