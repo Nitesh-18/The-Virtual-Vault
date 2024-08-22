@@ -31,13 +31,30 @@ router.get("/shop", isLoggedIn, (req, res) => {
       res.status(500).render("error");
     });
 });
-router.get("/cart", isLoggedIn, async (req, res) => {
-  let user = await userModel
-    .findOne({ email: req.user.email })
-    .populate("cart");
 
-  const bill = (Number(user.cart[0].price) + 20 ) - Number (user.cart[0].discount);
-  res.render("cart", {user,bill});
+router.get("/cart", isLoggedIn, async (req, res) => {
+  try {
+    let user = await userModel
+      .findOne({ email: req.user.email })
+      .populate("cart");
+
+    console.log(user); // Log the user object to ensure it is correctly populated
+
+    if (!user || !user.cart) {
+      return res.status(404).send("Cart not found");
+    }
+
+    // Calculating the total bill of all items
+    let totalAmount = 0;
+    user.cart.forEach((item) => {
+      totalAmount += Number(item.price) - Number(item.discount);
+    });
+
+    res.render("cart", { user, totalAmount });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server error");
+  }
 });
 
 router.get("/logout", isLoggedIn, (req, res) => {

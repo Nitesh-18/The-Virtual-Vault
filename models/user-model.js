@@ -1,5 +1,14 @@
 const mongoose = require('mongoose');
 
+// const cartItemSchema = new mongoose.Schema({
+//   name: String,
+//   price: Number,
+//   discount: Number,
+//   image: Buffer,
+//   quantity: { type: Number, default: 1 },
+//   // any other fields...
+// });
+
 const userSchema = mongoose.Schema({
     name: String,
     email: String,
